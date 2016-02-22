@@ -32,6 +32,7 @@
 
 - name: add webupd8 ppa
   apt_repository: repo='ppa:webupd8team/java'
+  sudo: yes
   tags:
     - setup
 
@@ -75,6 +76,7 @@
 
 - name : copy public key in authorized keys
   shell: cat /home/hduser/.ssh/id_rsa.pub >> /home/hduser/.ssh/authorized_keys
+  sudo: yes
   tags:
     - setup
 
@@ -102,6 +104,7 @@
     group: hadoop
     mode: 0700
   with_items: pki_certs.results
+  sudo: yes
   tags:
     - setup
     - copyit
